@@ -15,7 +15,7 @@ class Queue {
 
   enqueue(value) {
     const newNode = new Node(value);
-    if (this.head === null) {
+    if (!this.head) {
       this.head = this.tail = newNode;
     } else {
       this.tail.next = newNode;
@@ -46,6 +46,7 @@ class Tree {
     queue.enqueue(this.root);
     while (queue.size) {
       const currentNode = queue.dequeue();
+      console.log(currentNode.value);
       if (currentNode.left) queue.enqueue(currentNode.left);
       if (currentNode.right) queue.enqueue(currentNode.right);
     }
